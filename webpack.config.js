@@ -2,9 +2,11 @@
  * Created by Mason Jackson in Office on 2017/4/21.
  */
 var HtmlWebpackPlugin=require('html-webpack-plugin');
+var webpack=require('webpack');
 var modulePath=__dirname+"/modules";
 var entryPath=__dirname;
 var outPath=__dirname;
+
 module.exports = {
     devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项
     entry:  entryPath + "/index.js",
@@ -39,7 +41,13 @@ module.exports = {
     },
     plugins:[
         new HtmlWebpackPlugin({
-            title: 'Hello World app'
+            title: '麦米科技后台管理系统',
+            template:'./src/mainPageTemplate.html'
+        }),
+        new webpack.ProvidePlugin({
+            $:"jquery",
+            jQuery:"jquery",
+            "window.jQuery":"jquery"
         })
     ],
     devServer:{
