@@ -12,13 +12,22 @@ export default class AsidePanel extends React.Component{
         event.preventDefault();
         let element=event.srcElement||event.target;
         let parent=element.parentNode;
-        if(parent.tagName.toLowerCase()!=="li")
+        let tagName=parent.tagName.toLowerCase();
+        if(tagName!=="li"&&tagName!=="div")
             return;
-        let panel=parent.parentNode.previousSibling;
-        $('.asideCurrentChildPanelLi').removeClass('asideCurrentChildPanelLi');
         $('.asideCurrentPanelLink').removeClass('asideCurrentPanelLink');
-        parent.className+= ' asideCurrentChildPanelLi';
-        panel.className+= ' asideCurrentPanelLink';
+        if(parent.tagName.toLowerCase()==="li")
+        {
+            $('.asideCurrentChildPanelLi').removeClass('asideCurrentChildPanelLi');
+            parent.className+= ' asideCurrentChildPanelLi';
+            let panel=parent.parentNode.previousSibling;
+            panel.className+= ' asideCurrentPanelLink';
+        }
+        else
+        {
+            $('.asideChildPanel').removeClass('in');
+            element.className+= ' asideCurrentPanelLink';
+        }
     }
 
     render(){
