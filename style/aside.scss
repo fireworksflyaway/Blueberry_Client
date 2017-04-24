@@ -1,6 +1,6 @@
 $backColor:#354656;
 $childColor:#3d4f60;
-$frontColor:deepskyblue;
+$frontColor:#5faee3;
 $paddingLeft:15px;
 $paddingCurrentLeft:13px;
 
@@ -20,7 +20,7 @@ $paddingCurrentLeft:13px;
 
 @mixin smallFont{
     @include fontStyle;
-    line-height: 30px;
+    line-height: 40px;
     font-size: small;
 }
 
@@ -39,31 +39,32 @@ $paddingCurrentLeft:13px;
 .asidePanelLink:visited
 {
     padding-left: $paddingLeft;
+    margin-bottom: 2px;
     display: block;
     width: 100%;
     @include bigFont;
 }
 
-.asidePanelLink:hover{
+.asideCurrentPanelLink{
     background-color: $frontColor;
 }
 
 
 .asideChildPanel{
     padding-left:0;
+    margin: 0;
 }
 
 
 
 .asideChildPanel li {
-    padding: 2px 0 2px $paddingLeft;
+    padding-left: $paddingLeft;
     list-style: none;
     background-color: $childColor;
-    cursor: pointer;
 }
 
 
-.currentChildPanelLi{
+.asideCurrentChildPanelLi{
     border-left: 2px solid $frontColor;
     padding-left: $paddingCurrentLeft !important;
 }

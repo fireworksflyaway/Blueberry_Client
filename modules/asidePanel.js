@@ -8,25 +8,33 @@ export default class AsidePanel extends React.Component{
         super();
     }
 
-    handleClick(){
-        $('.currentChildPanelLi').removeClass('currentChildPanelLi');
-        console.log($(this).parent());
+    handleClick(event){
+        event.preventDefault();
+        let element=event.srcElement||event.target;
+        let parent=element.parentNode;
+        if(parent.tagName.toLowerCase()!=="li")
+            return;
+        let panel=parent.parentNode.previousSibling;
+        $('.asideCurrentChildPanelLi').removeClass('asideCurrentChildPanelLi');
+        $('.asideCurrentPanelLink').removeClass('asideCurrentPanelLink');
+        parent.className+= ' asideCurrentChildPanelLi';
+        panel.className+= ' asideCurrentPanelLink';
     }
 
     render(){
         return(
-            <div className="asidePanel">
+            <div className="asidePanel" onClick={this.handleClick}>
                 <Link to='#depotAsidePanel' data-toggle="collapse" className="asidePanelLink">仓库管理系统</Link>
                 <ul id='depotAsidePanel' className="panel-collapse collapse asideChildPanel">
                     <li><Link to="#" >商品库存量查询</Link></li>
-                    <li className="currentChildPanelLi"><Link to="#">仓库管理</Link></li>
+                    <li><Link to="#">仓库管理</Link></li>
                     <li><Link to="#">入库表</Link></li>
                     <li><Link to="#">出库表</Link></li>
                 </ul>
 
                 <Link to='#staffAsidePanel' data-toggle="collapse" className="asidePanelLink">员工管理系统</Link>
                 <ul id='staffAsidePanel' className="panel-collapse collapse asideChildPanel">
-                    <li><Link to="#abc"  onClick={this.handleClick}>员工信息查询</Link></li>
+                    <li><Link to="#abc">员工信息查询</Link></li>
                 </ul>
             </div>
         );
