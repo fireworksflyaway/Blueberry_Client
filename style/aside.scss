@@ -1,8 +1,74 @@
 $backColor:#354656;
+$childColor:#3d4f60;
+$frontColor:deepskyblue;
+$paddingLeft:15px;
+$paddingCurrentLeft:13px;
+
+
+@mixin fontStyle{
+    font-weight: 500;
+    letter-spacing: 1px;
+    color:whitesmoke;
+    text-decoration: none;
+}
+
+@mixin bigFont{
+    @include fontStyle;
+    line-height: 60px;
+    font-size:medium;
+}
+
+@mixin smallFont{
+    @include fontStyle;
+    line-height: 30px;
+    font-size: small;
+}
 
 .totalaside{
     background-color: $backColor ;
     height: 100%;
     max-width:200px;
     position: fixed;
+    padding: 0;
 }
+
+
+
+.asidePanelLink:link,
+.asidePanelLink:hover,
+.asidePanelLink:visited
+{
+    padding-left: $paddingLeft;
+    display: block;
+    width: 100%;
+    @include bigFont;
+}
+
+.asidePanelLink:hover{
+    background-color: $frontColor;
+}
+
+
+.asideChildPanel{
+    padding-left:0;
+}
+
+
+
+.asideChildPanel li {
+    padding: 2px 0 2px $paddingLeft;
+    list-style: none;
+    background-color: $childColor;
+    cursor: pointer;
+}
+
+
+.currentChildPanelLi{
+    border-left: 2px solid $frontColor;
+    padding-left: $paddingCurrentLeft !important;
+}
+
+.asideChildPanel li a{
+    @include smallFont;
+}
+

@@ -3,6 +3,8 @@
  */
 import React from 'react';
 import '../style/aside.scss';
+
+import AsidePanel from './asidePanel';
 export default class Aside extends React.Component{
     constructor(){
         super();
@@ -12,7 +14,7 @@ export default class Aside extends React.Component{
         console.log('aside render...');
         return(
            <aside className="col-lg-2 col-md-2 col-sm-1 col-xs-1 totalaside">
-
+                <AsidePanel/>
            </aside>
         );
     }

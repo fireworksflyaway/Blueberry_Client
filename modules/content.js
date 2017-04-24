@@ -18,7 +18,7 @@ export default class Content extends React.Component{
         console.log('rendering...');
         return (
             <div>
-                <Aside/>
+                <Aside />
             </div>
         );
     }
