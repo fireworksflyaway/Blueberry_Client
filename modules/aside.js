@@ -14,6 +14,7 @@ export default class Aside extends React.Component{
         console.log('aside render...');
         return(
            <aside className="col-lg-2 col-md-2 col-sm-1 col-xs-1 totalaside">
+               <img id="logoImg" src={require("../images/Logo.png")} />
                 <AsidePanel/>
            </aside>
         );
