@@ -4,7 +4,9 @@
 /**
  * Created by ImageDBUser on 2017/3/10.
  */
-//import React from 'react';
+import React from 'react';
+
+import Aside from './aside';
 
 export default class Content extends React.Component{
     constructor(){
@@ -16,7 +18,7 @@ export default class Content extends React.Component{
         console.log('rendering...');
         return (
             <div>
-                lalala...
+                <Aside/>
             </div>
         );
     }
