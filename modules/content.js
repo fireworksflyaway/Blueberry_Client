@@ -15,7 +15,6 @@ export default class Content extends React.Component{
     }
 
     render(){
-        console.log('rendering...');
         return (
             <div>
                 <Aside />
