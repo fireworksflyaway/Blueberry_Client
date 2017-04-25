@@ -20,3 +20,11 @@ body{
 }
 
 
+article{
+    position: fixed;
+    left:300px;
+    top:100px;
+    background-color: white;
+    min-height: 700px !important;
+    border-radius: 5px 5px;
+}

@@ -2,43 +2,80 @@
  * Created by Mason Jackson in Office on 2017/4/25.
  */
 import React from 'react';
-
+import {Modal,Popover, Tooltip, OverlayTrigger} from 'react-overlays';
 //import '../node_modules/bootstrap/dist/js/bootstrap.min';
-export default class Home extends React.Component{
-    constructor(){
-        super();
-    }
+let rand = ()=> (Math.floor(Math.random() * 20) - 10);
 
-    render(){
-        return(
-            <div className="home">
-                <h2>Welcome dear user...</h2>
-                <a href="#myModal" className="btn btn-primary" data-toggle="modal">Click to show modal</a>
+const modalStyle = {
+    position: 'fixed',
+    zIndex: 1040,
+    top: 0, bottom: 0, left: 0, right: 0
+};
 
-                <div className="modal fade" id="myModal" tabindex="1050" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <button className="close" data-dismiss="modal" aria-hidden="true">x</button>
-                                <h4 className="modal-title" id="myModalLabel">模态框标题</h4>
-                            </div>
+const backdropStyle = {
+    position: 'fixed',
+    top: 0, bottom: 0, left: 0, right: 0,
+    zIndex: 'auto',
+    backgroundColor: '#000',
+    opacity: 0.5
+};
 
-                            <div class="modal-body">
-                                按下 ESC 按钮退出。
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-default"
-                                        data-dismiss="modal">关闭
-                                </button>
-                                <button type="button" className="btn btn-primary">
-                                    提交更改
-                                </button>
-                            </div>
+const dialogStyle = function() {
+    // we use some psuedo random coords so nested modals
+    // don't sit right on top of each other.
+    let top = 50 + rand();
+    let left = 50 + rand();
 
-                        </div>
+    return {
+        position: 'absolute',
+        width: 400,
+        top: top + '%', left: left + '%',
+        transform: `translate(-${top}%, -${left}%)`,
+        border: '1px solid #e5e5e5',
+        backgroundColor: 'white',
+        boxShadow: '0 5px 15px rgba(0,0,0,.5)',
+        padding: 20
+    };
+};
+
+
+const Home = React.createClass({
+
+    getInitialState(){
+        return { showModal: false };
+    },
+
+    render() {
+
+        return (
+            <div className='modal-example'>
+                <a href="#" onClick={this.open}>
+                    Open Modal
+                </a>
+                <p>Click to get the full Modal experience!</p>
+
+                <Modal
+                    aria-labelledby='modal-label'
+                    style={modalStyle}
+                    backdropStyle={backdropStyle}
+                    show={this.state.showModal}
+                    onHide={this.close}
+                >
+                    <div style={dialogStyle()} >
+                        <h4 id='modal-label'>Text in a modal</h4>
+                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
                     </div>
-                </div>
+                </Modal>
             </div>
         );
+    },
+
+    close(){
+        this.setState({ showModal: false });
+    },
+
+    open(){
+        this.setState({ showModal: true });
     }
-}
+});
+module.exports = Home;

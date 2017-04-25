@@ -16,7 +16,9 @@ export default class Content extends React.Component{
             <div>
                 <Aside />
                 <Nav/>
-                {this.props.children}
+                <article className="col-lg-9 col-md-8">
+                    {this.props.children}
+                </article>
             </div>
         );
     }
