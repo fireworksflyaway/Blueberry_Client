@@ -18,6 +18,8 @@ export default class Content extends React.Component{
         return (
             <div>
                 <Aside />
+                <nav>This is a nav...</nav>
+                {this.props.children}
             </div>
         );
     }

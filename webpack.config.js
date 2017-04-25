@@ -42,7 +42,8 @@ module.exports = {
     plugins:[
         new HtmlWebpackPlugin({
             title: '麦米科技后台管理系统',
-            template:'./src/mainPageTemplate.html'
+            template:'./src/mainPageTemplate.html',
+            favicon: __dirname + '/favicon.ico'
         }),
         new webpack.ProvidePlugin({
             $:"jquery",

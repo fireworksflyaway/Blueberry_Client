@@ -13,7 +13,7 @@ export default class Aside extends React.Component{
 
     render(){
         return(
-           <aside className="col-lg-2 col-md-2 col-sm-1 col-xs-1 totalaside">
+           <aside className="totalaside">
                <Link to="/"><img id="logoImg" src={require("../images/Logo.png")} /></Link>
                 <AsidePanel/>
            </aside>

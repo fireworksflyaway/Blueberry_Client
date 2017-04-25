@@ -11,12 +11,13 @@ import './style/common.scss';
 
 
 import Content from './modules/content';
+import Home from './modules/home';
 
 render(
     (<Router history={browserHistory}>
         <Route path="/" component={Content}>
-            {/*<IndexRoute component={Content}/>*/}
-            {/*<Route path="/signup" component={SignUp}/>*/}
+            <IndexRoute component={Home}/>
+            <Route path="/signup" component={Home}/>
             {/*<Route path="/centralpanel" component={CentralPanel}/>*/}
             {/*<Route path="/profile" component={Profile}/>*/}
         </Route>

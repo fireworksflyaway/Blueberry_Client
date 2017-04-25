@@ -9,3 +9,14 @@ body{
     background-color: whitesmoke;
     font-family: Adobe 黑体 Std R, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
+.home{
+    position: fixed;
+    left:200px;
+    width: 100%;
+}
+
+
+.modal-backdrop{
+    z-index: -10 !important;
+}
