@@ -1,4 +1,6 @@
-$backColor:#354656;
+@import "common";
+
+$backColor:$deepBlue;
 $childColor:#3d4f60;
 $frontColor:#5faee3;
 $paddingLeft:15px;
@@ -27,7 +29,7 @@ $paddingCurrentLeft:13px;
 .totalaside{
     background-color: $backColor ;
     height: 100%;
-    width:200px;
+    width:$asideWidth;
     position: fixed;
     padding: 0;
 }
