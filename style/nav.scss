@@ -3,14 +3,13 @@
 nav{
     padding-left: $asideWidth;
     padding-right: 20px;
-    z-index: -5 !important;
 }
 
 .navbar-header{
     border-right: 1px solid lightgray;
 }
 
-.navbar-right li{
+.navbar-right>li{
     border-left:1px solid lightgray;
     min-width: 60px;
     text-align: center;
@@ -23,4 +22,12 @@ nav{
 
 #userLink{
     display: inline-block;
+}
+
+.glyphicon{
+    font-size:large;
+}
+
+.badge{
+    background-color: deepskyblue;
 }
