@@ -2,42 +2,26 @@
  * Created by Mason Jackson in Office on 2017/4/25.
  */
 import React from 'react';
-import {Modal,Popover, Tooltip, OverlayTrigger} from 'react-overlays';
-
-const Home = React.createClass({
-
-    getInitialState(){
-        return { showModal: false };
-    },
-
-    render() {
-
-        return (
-            <div className='modal-example'>
-                <a href="#" onClick={this.open}>
-                    Open Modal
-                </a>
-                <p>Click to get the full Modal experience!</p>
-
-                <Modal
-                    aria-labelledby='modal-label'
-                    show={this.state.showModal}
-                    onHide={this.close}
-                >
-                    <div className="dialogStyle" >
-                        {this.props.children}
-                    </div>
-                </Modal>
-            </div>
-        );
-    },
-
-    close(){
-        this.setState({ showModal: false });
-    },
-
-    open(){
-        this.setState({ showModal: true });
+import MyModal from './myModal';
+export default class Content extends React.Component{
+    constructor(){
+        super();
+        this.state={show:false}
     }
-});
-module.exports = Home;
+
+    handle(){
+        this.refs.mm.open();
+    }
+
+
+    render(){
+        return (
+            <div>
+                <a href="#" onClick={this.handle.bind(this)}>Click to show modal</a>
+                <MyModal title="新建库房" ref="mm">
+                    Hello
+                </MyModal>
+            </div>
+        )
+    }
+}
