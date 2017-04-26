@@ -6,7 +6,6 @@ import MyModal from './myModal';
 export default class Content extends React.Component{
     constructor(){
         super();
-        this.state={show:false}
     }
 
     handle(){
