@@ -3,7 +3,9 @@
  */
 import React from 'react';
 import MyModal from './myModal';
-export default class Content extends React.Component{
+import ArticleHeader from './articleHeader';
+import ArticleBody from './articleBody';
+export default class Home extends React.Component{
     constructor(){
         super();
     }
@@ -16,10 +18,13 @@ export default class Content extends React.Component{
     render(){
         return (
             <div>
-                <a href="#" onClick={this.handle.bind(this)}>Click to show modal</a>
-                <MyModal title="新建库房" ref="mm">
-                    Hello <a href="./signin.html">go to sign in</a>
-                </MyModal>
+                <ArticleHeader title="欢迎！麦米网的同事"/>
+                <ArticleBody>
+                    <a href="#" onClick={this.handle.bind(this)}>Click to show modal</a>
+                    <MyModal title="新建库房" ref="mm">
+                        Hello <a href="./signin.html">go to sign in</a>
+                    </MyModal>
+                </ArticleBody>
             </div>
         )
     }

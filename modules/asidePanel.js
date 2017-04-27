@@ -33,17 +33,17 @@ export default class AsidePanel extends React.Component{
     render(){
         return(
             <div className="asidePanel" onClick={this.handleClick}>
+                <Link to='#staffAsidePanel' data-toggle="collapse" className="asidePanelLink">员工管理系统</Link>
+                <ul id='staffAsidePanel' className="panel-collapse collapse asideChildPanel">
+                    <li><Link to="/staff">员工信息查询</Link></li>
+                </ul>
+
                 <Link to='#depotAsidePanel' data-toggle="collapse" className="asidePanelLink">仓库管理系统</Link>
                 <ul id='depotAsidePanel' className="panel-collapse collapse asideChildPanel">
                     <li><Link to="#" >商品库存量查询</Link></li>
                     <li><Link to="#">仓库管理</Link></li>
                     <li><Link to="#">入库表</Link></li>
                     <li><Link to="#">出库表</Link></li>
-                </ul>
-
-                <Link to='#staffAsidePanel' data-toggle="collapse" className="asidePanelLink">员工管理系统</Link>
-                <ul id='staffAsidePanel' className="panel-collapse collapse asideChildPanel">
-                    <li><Link to="#abc">员工信息查询</Link></li>
                 </ul>
             </div>
         );
