@@ -18,7 +18,7 @@ export default class Content extends React.Component{
             <div>
                 <a href="#" onClick={this.handle.bind(this)}>Click to show modal</a>
                 <MyModal title="新建库房" ref="mm">
-                    Hello
+                    Hello <a href="./signin.html">go to sign in</a>
                 </MyModal>
             </div>
         )

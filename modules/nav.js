@@ -14,8 +14,17 @@ export default class Nav extends React.Component{
         return(
             <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
             <div className="navbar-header">
+                <button type="button" className="navbar-toggle" data-toggle="collapse"
+                        data-target="#navbar-collapse">
+                    <span className="sr-only">切换导航</span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                    <span className="icon-bar"></span>
+                </button>
                  <span className="glyphicon glyphicon-plus navbar-brand"></span>
             </div>
+
+            <div className="collapse navbar-collapse" id="navbar-collapse">
                 <ul className="nav navbar-nav navbar-right">
                     <li><a href="#"><span className="glyphicon glyphicon-bell"></span><span className="badge">21</span> </a></li>
                     <li><a href="#"><span className="glyphicon glyphicon-envelope"></span><span className="badge">7</span> </a></li>
@@ -29,6 +38,8 @@ export default class Nav extends React.Component{
                     </li>
                     <li><a href="#"><span className="glyphicon glyphicon-off"></span> </a></li>
                 </ul>
+            </div>
+
             </nav>
         );
     }
