@@ -19,12 +19,15 @@ export default class MySelect extends React.Component{
         super();
     }
 
-    render(){
+    componentDidMount(){
+         $('.selectpicker').selectpicker('render');
+    }
 
+    render(){
         return (
             <span>
                 <label style={labelStyle}>{this.props.title}</label>
-                <select className="selectpicker" >
+                <select className="selectpicker" data-width="fit">
                     {this.props.children}
                 </select>
             </span>

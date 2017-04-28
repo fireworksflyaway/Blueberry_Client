@@ -15,7 +15,6 @@ export default class Staff extends React.Component{
         this.refs.mm.open();
     }
 
-
     render(){
         return (
             <div>
