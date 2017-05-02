@@ -4,9 +4,6 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-
-
-
 export default class MySelect extends React.Component {
     constructor() {
         super();
@@ -16,7 +13,7 @@ export default class MySelect extends React.Component {
         return (
             <div style={{float:"right"}}>
             <div className="input-group">
-                <input type="text" className="form-control" />
+                <input type="text" className="form-control" placeholder={this.props.placeholder}/>
                 <span className="input-group-btn">
                     <button className="btn btn-primary" type="button"><span className="glyphicon glyphicon-search" style={{fontSize:"small"}}></span></button>
                 </span>

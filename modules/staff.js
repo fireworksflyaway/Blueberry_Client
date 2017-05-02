@@ -7,9 +7,81 @@ import ArticleHeader from './articleHeader';
 import ArticleBody from './articleBody';
 import MySelect from './mySelect';
 import MySearch from './mySearch';
+import StaffItem from './staffItem';
+import MyPagination from './myPagination';
 export default class Staff extends React.Component{
     constructor(){
         super();
+        this.state={
+            pageIndex:1,
+            items:[],
+            pageCount:0,
+            itemCount:0
+        }
+    }
+
+    changePage(page)
+    {
+        $.get("http://192.168.0.148:8085/api/staff",
+            {
+                staffId:1,
+                token:'',
+                item:'',
+                department:'',
+                position:'',
+                pageIndex:page,
+                pageSize:10
+            },(obj)=> {
+                if(obj.Ack)
+                {
+                    this.setState(
+                        {
+                            items:obj.StaffList,
+                            pageCount:obj.PageCount,
+                            pageIndex:page,
+                            itemCount:obj.ItemCount
+                        });
+                }
+                else
+                {
+                    alert(obj.Err);
+                }
+            }
+        )
+    }
+
+    componentWillMount(){
+        let pindex=this.state.pageIndex;
+        $.get("http://192.168.0.148:8085/api/staff",
+            {
+                staffId:1,
+                token:'',
+                item:'',
+                department:'',
+                position:'',
+                pageIndex:pindex,
+                pageSize:10
+            },(obj)=> {
+                if(obj.Ack)
+                {
+                    this.setState(
+                        {
+                            items:obj.StaffList,
+                            pageCount:obj.PageCount,
+                            pageIndex:pindex,
+                            itemCount:obj.ItemCount
+                        });
+                }
+                else
+                {
+                    alert(obj.Err);
+                }
+            }
+        )
+    }
+
+    componentWillUpdate(){
+
     }
 
     handle(){
@@ -17,31 +89,42 @@ export default class Staff extends React.Component{
     }
 
     render(){
+        let staffItems=[];
+        if(this.state.items.length==0)
+        {
+            staffItems.push(<tr><td colSpan="7" style={{textAlign:"center"}}>暂无员工信息</td> </tr>)
+        }
+        else
+        {
+            this.state.items.forEach(item=>{
+                staffItems.push(<StaffItem item={item}/>);
+            })
+        }
         return (
             <div>
                 <ArticleHeader title="员工信息查询">
                     <form className="form-inline">
                         <MySelect title="部门">
-                            <option>全选</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option defaultValue=''>全选</option>
+                            <option value="市场部">市场部</option>
+                            <option value="采购部">采购部</option>
+                            <option value="人事部">人事部</option>
+                            <option value="财务部">财务部</option>
                         </MySelect>
                         &emsp;&emsp;
                         <MySelect title="职位">
-                            <option>全选</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option defaultValue=''>全选</option>
+                            <option value="职员">职员</option>
+                            <option value="主管">主管</option>
+                            <option value="经理">经理</option>
+                            <option value="总经理">总经理</option>
                         </MySelect>
                         &emsp;&emsp;
-                        <MySearch />
+                        <MySearch placeholder="请输入工号或姓名..."/>
                     </form>
                 </ArticleHeader>
                 <ArticleBody>
-                    <table className="table table-bordered table-striped table-hover">
+                    <table className="table table-bordered myTable">
                         <thead>
                             <tr>
                                 <th>员工姓名</th>
@@ -54,49 +137,11 @@ export default class Staff extends React.Component{
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>靳强</td>
-                                <td>1</td>
-                                <td>电商事业部</td>
-                                <td>主管</td>
-                                <td>P4</td>
-                                <td>18664867965</td>
-                                <td>fireworksflyaway@live.com</td>
-                            </tr>
-                            <tr>
-                                <td>靳强</td>
-                                <td>1</td>
-                                <td>电商事业部</td>
-                                <td>主管</td>
-                                <td>P4</td>
-                                <td>18664867965</td>
-                                <td>fireworksflyaway@live.com</td>
-                            </tr>
-                            <tr>
-                                <td>靳强</td>
-                                <td>1</td>
-                                <td>电商事业部</td>
-                                <td>主管</td>
-                                <td>P4</td>
-                                <td>18664867965</td>
-                                <td>fireworksflyaway@live.com</td>
-                            </tr>
-                            <tr>
-                                <td>靳强</td>
-                                <td>1</td>
-                                <td>电商事业部</td>
-                                <td>主管</td>
-                                <td>P4</td>
-                                <td>18664867965</td>
-                                <td>fireworksflyaway@live.com</td>
-                            </tr>
+                        {staffItems}
                         </tbody>
                     </table>
 
-
-
-
-
+                    <MyPagination itemCount={this.state.itemCount} pageIndex={this.state.pageIndex} pageCount={this.state.pageCount} changePage={this.changePage.bind(this)}/>
                     <a href="#" onClick={this.handle.bind(this)}>Click to show modal</a>
                     <MyModal title="新建库房" ref="mm">
                         Hello <a href="./signin.html">go to sign in</a>
