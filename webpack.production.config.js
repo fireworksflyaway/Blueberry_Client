@@ -13,7 +13,7 @@ var outPath=__dirname+"/result";
 module.exports = {
     entry:  {
         index: entryPath + "/index.js",
-        signIn: entryPath+"/signIn.js"
+        signIn: entryPath+"/signUp.js"
     },
     output: {
         path: outPath,

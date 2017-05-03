@@ -1,0 +1,20 @@
+.userNav{
+    display: flex;
+    height: 100px;
+    border-bottom: 1px solid lightgray;
+    align-items: center;
+}
+
+.userNav .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.userForm{
+    width: 350px;
+    margin: 0 auto;
+}
+
+.userFormButton{
+    min-width: 100px;
+}

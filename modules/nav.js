@@ -33,7 +33,7 @@ export default class Nav extends React.Component{
                         <a id='userLink' className="dropdown-toggle" href="#" data-toggle="dropdown">麦米用户<b className="caret"></b></a>
                         <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             <li><a href="#">编辑用户信息</a> </li>
-                            <li><a href="#">注销</a> </li>
+                            <li><a href="/signin.html">注销</a> </li>
                         </ul>
                     </li>
                     <li><a href="#"><span className="glyphicon glyphicon-off"></span> </a></li>

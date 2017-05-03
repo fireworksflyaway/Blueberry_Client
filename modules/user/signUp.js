@@ -1,11 +1,11 @@
 import React from 'react';
-import $ from 'jquery';
+//import $ from 'jquery';
 //import 'bootstrap/dist/css/bootstrap.css';
 
 
-//import '../css/signin.css';
+import '../../style/signIn.css';
 
-export default class SignIn extends React.Component{
+export default class SignUp extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
@@ -144,10 +144,10 @@ export default class SignIn extends React.Component{
 				<div id="top">
 					<div className="title">
 						<div className='home fl'>
-							<a href="#none"><span>访问MAIMI官网</span></a>
+							<a href="/"><span>访问MAIMI官网</span></a>
 						</div>
 						<div className='logo fl'>
-							<a href="#none"><img src='../image/icon/Logo.png' /></a>
+							<a href="#none"><img src={require('../images/blueLogo.png')} /></a>
 						</div>
 						<div className="tit fr">
 							<span><a href="SignUp">员工登录</a></span>
@@ -157,7 +157,7 @@ export default class SignIn extends React.Component{
 				<div id="section">
 					<div className="sec_box">
 						<div className="img fl">
-							<img src='../image/icon/Signup.png' />
+							<img src={require('../images/signup.png')} />
 						</div>
 						<div className="signin_box fr">
 							<div className="title">
