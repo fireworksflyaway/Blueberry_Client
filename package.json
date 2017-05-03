@@ -4,7 +4,8 @@
   "description": "blueberry front end client",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --content-base public --history-api-fallback"
+    "start": "webpack-dev-server --inline --content-base public --history-api-fallback",
+    "build": "webpack --progress --profile --colors --config webpack.production.config.js"
   },
   "repository": {
     "type": "git",
