@@ -29,7 +29,6 @@ export default class MyPagination extends React.Component {
         if(pageCount>len&&pageIndex>2)
             startNum=pageIndex-2;
         let items=[];
-        console.log(pageIndex);
         for(let i=startNum;i<startNum+len;i++)
         {
             if(i==pageIndex)

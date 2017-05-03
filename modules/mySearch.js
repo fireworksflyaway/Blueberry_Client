@@ -9,13 +9,18 @@ export default class MySelect extends React.Component {
         super();
     }
 
+    clickHandler(){
+        let value=$(`#${this.props.id}`).val();
+        this.props.search(value);
+    }
+
     render() {
         return (
             <div style={{float:"right"}}>
             <div className="input-group">
-                <input type="text" className="form-control" placeholder={this.props.placeholder}/>
+                <input type="text" className="form-control" placeholder={this.props.placeholder}  id={this.props.id}/>
                 <span className="input-group-btn">
-                    <button className="btn btn-primary" type="button"><span className="glyphicon glyphicon-search" style={{fontSize:"small"}}></span></button>
+                    <button onClick={this.clickHandler.bind(this)} className="btn btn-primary" type="button"><span className="glyphicon glyphicon-search" style={{fontSize:"small"}}></span></button>
                 </span>
             </div>
             </div>

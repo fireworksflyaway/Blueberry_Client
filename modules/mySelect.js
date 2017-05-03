@@ -19,6 +19,11 @@ export default class MySelect extends React.Component{
         super();
     }
 
+    changeHandler(){
+        let value= $(`#${this.props.id} option:selected`).val();
+        this.props.changeValue(value);
+    }
+
     componentDidMount(){
          $('.selectpicker').selectpicker('render');
     }
@@ -27,7 +32,7 @@ export default class MySelect extends React.Component{
         return (
             <span>
                 <label style={labelStyle}>{this.props.title}</label>
-                <select className="selectpicker" data-width="fit">
+                <select id={this.props.id} className="selectpicker" data-width="fit" onChange={this.changeHandler.bind(this)}>
                     {this.props.children}
                 </select>
             </span>
