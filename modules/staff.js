@@ -25,10 +25,12 @@ export default class Staff extends React.Component{
 
     updateTable(pageIndex=this.state.pageIndex, searchItem=this.state.searchItem, department=this.state.department, position=this.state.position)
     {
+        let staffId=sessionStorage.getItem('Maimi_StaffId');
+        let token=sessionStorage.getItem('Maimi_Token');
         $.get("http://192.168.0.148:8085/api/staff",
             {
-                staffId:1,
-                token:'',
+                staffId: staffId,
+                token: token,
                 item:searchItem,
                 department:department,
                 position:position,
@@ -58,10 +60,12 @@ export default class Staff extends React.Component{
 
     componentWillMount(){
         let pindex=this.state.pageIndex;
+        let staffId=sessionStorage.getItem('Maimi_StaffId');
+        let token=sessionStorage.getItem('Maimi_Token');
         $.get("http://192.168.0.148:8085/api/staff",
             {
-                staffId:1,
-                token:'',
+                staffId: staffId,
+                token: token,
                 item:'',
                 department:'',
                 position:'',
