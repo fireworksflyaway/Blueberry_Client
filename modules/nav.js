@@ -8,6 +8,10 @@ import '../style/nav.scss'
 export default class Nav extends React.Component{
     constructor(){
         super();
+        this.state={
+            staffId:sessionStorage.getItem('Maimi_StaffId'),
+            name:sessionStorage.getItem('Maimi_Name')
+        }
     }
 
     render(){
@@ -30,7 +34,7 @@ export default class Nav extends React.Component{
                     <li><a href="#"><span className="glyphicon glyphicon-envelope"></span><span className="badge">7</span> </a></li>
                     <li className="dropdown">
                         <img id='headpic' src={require('../images/head.png')} />
-                        <a id='userLink' className="dropdown-toggle" href="#" data-toggle="dropdown">麦米用户<b className="caret"></b></a>
+                        <a id='userLink' className="dropdown-toggle" href="#" data-toggle="dropdown">{this.state.name}<b className="caret"></b></a>
                         <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             <li><a href="#">编辑用户信息</a> </li>
                             <li><a href="/signin.html">注销</a> </li>

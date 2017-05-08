@@ -38,7 +38,9 @@ export default class SignUp extends React.Component{
         	$.post('http://192.168.0.148:8085/api/staff',data,function(obj){
         		if(obj.Ack == true){
         			window.alert('注册成功,您的工号为：' + obj.StaffId);
-        			sessionStorage.setItem('Token',obj.Token);
+                    sessionStorage.setItem('Maimi_StaffId', obj.StaffId);
+        			sessionStorage.setItem('Maimi_Token',obj.Token);
+        			sessionStorage.setItem('Maimi_Name',data.Name);
         			window.location.href = '/';
         		}else{
         			window.alert(obj.Err);
