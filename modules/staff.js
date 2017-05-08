@@ -149,7 +149,7 @@ export default class Staff extends React.Component{
                     </table>
 
                     <MyPagination itemCount={this.state.itemCount} pageIndex={this.state.pageIndex} pageCount={this.state.pageCount} changePage={this.updateTable.bind(this)}/>
-                    <a href="#" onClick={this.handle.bind(this)}>Click to show modal</a>
+                    {/*<a href="#" onClick={this.handle.bind(this)}>Click to show modal</a>*/}
                     <MyModal title="新建库房" ref="mm">
                         Hello <a href="./signin.html">go to sign in</a>
                     </MyModal>

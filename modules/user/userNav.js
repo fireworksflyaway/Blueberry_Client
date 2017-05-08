@@ -13,14 +13,14 @@ export default class UserNav extends React.Component{
         return (
             <nav className="userNav">
                 <div className="container">
-                    <div className='navbar-header'>
-                        <a href="#none"><span>访问MAIMI官网</span></a>
+                    <div className='borderDiv'>
+                        <a href="#none">访问麦米官网</a>
                     </div>
-                    <div className='nav navbar-nav'>
+                    <div className='logoDiv'>
                         <a href="#none"><img src={require('../../images/blueLogo.png')} /></a>
                     </div>
-                    <div>
-                        <span><a href="./signin.html">员工注册</a></span>
+                    <div className="linkDiv">
+                        <a href="./signin.html">员工注册</a>
                     </div>
                 </div>
             </nav>

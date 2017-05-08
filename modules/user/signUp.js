@@ -147,7 +147,7 @@ export default class SignUp extends React.Component{
 							<a href="/"><span>访问MAIMI官网</span></a>
 						</div>
 						<div className='logo fl'>
-							<a href="#none"><img src={require('../images/blueLogo.png')} /></a>
+							<a href="#none"><img src={require('../../images/blueLogo.png')} /></a>
 						</div>
 						<div className="tit fr">
 							<span><a href="SignUp">员工登录</a></span>
@@ -157,7 +157,7 @@ export default class SignUp extends React.Component{
 				<div id="section">
 					<div className="sec_box">
 						<div className="img fl">
-							<img src={require('../images/signup.png')} />
+							<img src={require('../../images/signup.png')} />
 						</div>
 						<div className="signin_box fr">
 							<div className="title">
