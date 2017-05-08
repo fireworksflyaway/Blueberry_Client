@@ -14,6 +14,14 @@ export default class Nav extends React.Component{
         }
     }
 
+    signOut(event)
+    {
+        sessionStorage.removeItem('Maimi_StaffId');
+        sessionStorage.removeItem('Maimi_Name');
+        sessionStorage.removeItem('Maimi_Token');
+    }
+
+
     render(){
         return(
             <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -37,10 +45,10 @@ export default class Nav extends React.Component{
                         <a id='userLink' className="dropdown-toggle" href="#" data-toggle="dropdown">{this.state.name}<b className="caret"></b></a>
                         <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">
                             <li><a href="#">编辑用户信息</a> </li>
-                            <li><a href="/signin.html">注销</a> </li>
+                            <li><a href="/signin.html" onClick={this.signOut}>注销</a> </li>
                         </ul>
                     </li>
-                    <li><a href="#"><span className="glyphicon glyphicon-off"></span> </a></li>
+                    <li><a href="/signin.html" onClick={this.signOut} title="注销登录"><span className="glyphicon glyphicon-off"></span> </a></li>
                 </ul>
             </div>
 
