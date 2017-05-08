@@ -33,7 +33,13 @@ export default class SignUp extends React.Component{
 			$('#section .pwd input').attr('type','password');
 		}
 	}
-	onBtnsClickSignUp(){
+	getForm(event){
+        event.preventDefault();
+		// let data={
+		// 	staffId:
+		// }
+
+
 		var bool = true;
 		if(this.state.staffid != "" && this.state.staffid != null){
 			if(this.state.pwd != '' && this.state.pwd != null){
@@ -76,7 +82,7 @@ export default class SignUp extends React.Component{
 	render(){
 		return(
 			<div>
-				<UserNav/>
+				<UserNav type="signIn"/>
 				<section className="container">
 					<div className="col-lg-6 col-md-6 col-sm-6">
 						<img src={require('../../images/signin.png')} />

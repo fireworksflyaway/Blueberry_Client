@@ -11,7 +11,8 @@ module.exports = {
     devtool: 'eval-source-map',//配置生成Source Maps，选择合适的选项
     entry:  {
         index: entryPath + "/index.js",
-        signIn: entryPath+"/signIn.js"
+        signIn: entryPath+"/signIn.js",
+        signUp:entryPath+"/signUp.js"
     },
     output: {
         path: outPath,
@@ -52,11 +53,19 @@ module.exports = {
             inject:'body',
         }),
         new HtmlWebpackPlugin({
-            title: '麦米科技后台管理系统注册',
+            title: '麦米科技后台管理系统登录',
             template:'./src/mainPageTemplate.html',
             favicon: __dirname + '/favicon.ico',
             filename:'signin.html',
             chunks:['signIn'],
+            inject:'body'
+        }),
+        new HtmlWebpackPlugin({
+            title: '麦米科技后台管理系统注册',
+            template:'./src/mainPageTemplate.html',
+            favicon: __dirname + '/favicon.ico',
+            filename:'signup.html',
+            chunks:['signUp'],
             inject:'body'
         }),
         new webpack.ProvidePlugin({
