@@ -1,8 +1,13 @@
+body{
+    background-color: whitesmoke;
+}
+
 .userNav{
     display: flex;
     height: 100px;
     border-bottom: 1px solid lightgray;
     align-items: center;
+    background-color: #FCFCFC;
 }
 
 .userNav .container{
@@ -29,8 +34,10 @@
     margin: 0 auto;
 }
 
+section{
+    margin-top:150px;
 
-
+}
 
 .userForm{
     width: 350px;
@@ -39,4 +46,20 @@
 
 .userFormButton{
     min-width: 100px;
+}
+
+.title{
+    text-align: center;
+    padding: 30px 0;
+}
+
+.title span{
+    font-size: larger;
+}
+
+.title span:before, .title span:after{
+    content: "\2014\2014\2014\2014\2014";
+    color: lightgray;
+    font-size: larger;
+    padding: 0 10px;
 }
