@@ -2,13 +2,14 @@
  * Created by Mason Jackson in Office on 2017/4/27.
  */
 import React from 'react';
-import MyModal from './myModal';
-import ArticleHeader from './articleHeader';
-import ArticleBody from './articleBody';
-import MySelect from './mySelect';
-import MySearch from './mySearch';
+import MyModal from '../myModal';
+import ArticleHeader from '../articleHeader';
+import ArticleBody from '../articleBody';
+import MySelect from '../mySelect';
+import MySearch from '../mySearch';
+import MyTable from '../myTable';
 import StaffItem from './staffItem';
-import MyPagination from './myPagination';
+import MyPagination from '../myPagination';
 export default class Staff extends React.Component{
     constructor(){
         super();
@@ -103,7 +104,8 @@ export default class Staff extends React.Component{
         let staffItems=[];
         if(this.state.items.length==0)
         {
-            staffItems.push(<tr><td colSpan="7" style={{textAlign:"center"}}>暂无员工信息</td> </tr>)
+            //staffItems.push(<tr><td colSpan="7" style={{textAlign:"center"}}>暂无员工信息</td> </tr>)
+            staffItems.push(<tr rowSpan="10"><td colSpan="7" style={{textAlign:"center"}}>暂无员工信息</td> </tr>)
         }
         else
         {

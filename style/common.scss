@@ -49,18 +49,3 @@ article{
     padding: 20px 50px;
 }
 
-.myTable thead tr{
-    background-color: #efefef;
-}
-
-.myTable{
-    cursor: pointer;
-}
-
-.myTable tbody tr:nth-child(2n){
-    background-color: whitesmoke;
-}
-
-.myTable tbody tr:hover{
-    background-color: aliceblue;
-}

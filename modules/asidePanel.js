@@ -40,8 +40,8 @@ export default class AsidePanel extends React.Component{
 
                 <Link to='#depotAsidePanel' data-toggle="collapse" className="asidePanelLink">仓库管理系统</Link>
                 <ul id='depotAsidePanel' className="panel-collapse collapse asideChildPanel">
-                    <li><Link to="#" >商品库存量查询</Link></li>
-                    <li><Link to="#">仓库管理</Link></li>
+                    <li><Link to="/depot/stock" >商品库存量查询</Link></li>
+                    <li><Link to="/depot">仓库管理</Link></li>
                     <li><Link to="#">入库表</Link></li>
                     <li><Link to="#">出库表</Link></li>
                 </ul>

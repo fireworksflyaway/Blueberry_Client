@@ -1,0 +1,36 @@
+.myTable thead tr{
+    background-color: #efefef;
+}
+
+.myTable{
+    cursor: pointer;
+}
+
+.myTable tbody tr:nth-child(2n){
+    background-color: whitesmoke;
+}
+
+.myTable tbody tr:hover{
+    background-color: aliceblue;
+}
+
+.myTable tbody tr td{
+    min-height: 70px;
+}
+
+.blankTd{
+    height: 450px;
+}
+
+.blankTd div{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.blankTd div span{
+    line-height: 35px;
+    color: gray;
+}
