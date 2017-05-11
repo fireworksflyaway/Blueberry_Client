@@ -8,7 +8,6 @@ import ArticleBody from '../articleBody';
 import MySelect from '../mySelect';
 import MySearch from '../mySearch';
 import MyTable from '../myTable';
-import StaffItem from './staffItem';
 import MyPagination from '../myPagination';
 export default class Staff extends React.Component{
     constructor(){
@@ -101,18 +100,17 @@ export default class Staff extends React.Component{
     }
 
     render(){
-        let staffItems=[];
-        if(this.state.items.length==0)
-        {
-            //staffItems.push(<tr><td colSpan="7" style={{textAlign:"center"}}>暂无员工信息</td> </tr>)
-            staffItems.push(<tr rowSpan="10"><td colSpan="7" style={{textAlign:"center"}}>暂无员工信息</td> </tr>)
-        }
-        else
-        {
-            this.state.items.forEach(item=>{
-                staffItems.push(<StaffItem item={item}/>);
-            })
-        }
+        let attrList=[
+            {name:"Name", title:"姓名"},
+            {name:"StaffId", title:"工号"},
+            {name:"Department", title:"部门"},
+            {name:"Position", title:"职位"},
+            {name:"Class", title:"级别"},
+            {name:"Phone", title:"电话"},
+            {name:"Email", title:"电子邮箱"}
+            ];
+
+
         return (
             <div>
                 <ArticleHeader title="员工信息查询">
@@ -137,22 +135,8 @@ export default class Staff extends React.Component{
                     </form>
                 </ArticleHeader>
                 <ArticleBody>
-                    <table className="table table-bordered myTable">
-                        <thead>
-                            <tr>
-                                <th>员工姓名</th>
-                                <th>工号</th>
-                                <th>部门</th>
-                                <th>职位</th>
-                                <th>级别</th>
-                                <th>电话</th>
-                                <th>邮箱</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {staffItems}
-                        </tbody>
-                    </table>
+                    <MyTable itemList={this.state.items} attrList={attrList} />
+
 
                     <MyPagination itemCount={this.state.itemCount} pageIndex={this.state.pageIndex} pageCount={this.state.pageCount} changePage={this.updateTable.bind(this)}/>
                     {/*<a href="#" onClick={this.handle.bind(this)}>Click to show modal</a>*/}

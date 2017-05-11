@@ -39,6 +39,10 @@ export default class MyTable extends React.Component{
                 })
                 bodyList.push(<tr>{tp}</tr>);
             })
+            if(bodyList.length<10){
+
+            }
+
         }
         return (
             <table className="table table-bordered myTable">
