@@ -20,7 +20,7 @@ export default class Stock extends React.Component{
     render(){
         let itemList=[{Id:1,Name:'mason',Age:25},{Id:2,Name:'lily',Age:18}];
         let attrList=[{name:"Id", title:"Id"},{name:"Name", title:"姓名"},{name:"Age", title:"年龄"}];
-        console.log(itemList);
+
         return (
             <div>
                 <ArticleHeader title="员工信息查询" />

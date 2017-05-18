@@ -14,16 +14,93 @@ export default class Depot extends React.Component{
     constructor()
     {
         super();
+        this.state={
+            pageIndex:1,
+            items:[],
+            pageCount:0,
+            itemCount:0,
+            searchItem:'',
+            pageSize:10
+        }
     }
 
+    updateTable({pageSize, pageIndex, searchItem}=this.state)
+    {
+        let staffId=sessionStorage.getItem('Maimi_StaffId');
+        let token=sessionStorage.getItem('Maimi_Token');
+        $.get("http://192.168.0.148:8085/api/depot",
+            {
+                staffId, token, searchItem, pageIndex, pageSize
+            }, (obj)=>{
+                if(obj.Ack)
+                {
+                    this.setState({
+                        items:obj.DepotList,
+                        pageCount:obj.PageCount,
+                        pageIndex:pageIndex,
+                        itemCount:obj.ItemCount,
+                        searchItem:searchItem,
+                        pageSize:pageSize
+                    });
+                    sessionStorage.setItem('Maimi_Token', obj.Token);
+                }
+                else
+                {
+                    alert(obj.Err);
+                }
+            }
+        );
+    }
+
+
+    componentWillMount(){
+        let staffId=sessionStorage.getItem('Maimi_StaffId');
+        let token=sessionStorage.getItem('Maimi_Token');
+        let {searchItem, pageIndex, pageSize}=this.state;
+        $.get("http://192.168.0.148:8085/api/depot",
+            {
+                staffId, token, searchItem, pageIndex, pageSize
+            }, (obj)=>{
+                if(obj.Ack)
+                {
+                    this.setState({
+                        items:obj.DepotList,
+                        pageCount:obj.PageCount,
+                        pageIndex:pageIndex,
+                        itemCount:obj.ItemCount,
+                        searchItem:searchItem,
+                        pageSize:pageSize
+                    });
+                    sessionStorage.setItem('Maimi_Token', obj.Token);
+                }
+                else
+                {
+                    alert(obj.Err);
+                }
+            }
+        );
+    }
+
+
     render(){
-        let itemList=[{Id:1,Name:'mason',Age:25},{Id:2,Name:'lily',Age:18}];
-        let attrList=[{name:"Id", title:"Id"},{name:"Name", title:"姓名"},{name:"Age", title:"年龄"}];
+        let attrList=[
+            {name:"Name", title:"仓库名称"},
+            {name:"Num", title:"仓库编号"},
+            {name:"Alias", title:"仓库别名"},
+            {name:"Address", title:"地址"},
+            {name:"StaffName", title:"负责人姓名"}
+        ]
+
         return (
             <div>
-                <ArticleHeader title="员工信息查询" />
+                <ArticleHeader title="仓库管理" >
+                    <form className="form-inline">
+                        <MySearch id="depotSearchInput" placeholder="请输入仓库名称/编号/别名..." search={this.updateTable.bind(this,this.state.pageSize, this.state.pageIndex)}/>
+                    </form>
+                </ArticleHeader>
                 <ArticleBody>
-                    <MyTable itemList={itemList} attrList={attrList}/>
+                    <MyTable itemList={this.state.items} attrList={attrList}/>
+                    <MyPagination itemCount={this.state.itemCount} pageIndex={this.state.pageIndex} pageCount={this.state.pageCount} changePage={this.updateTable.bind(this, this.state.pageSize)}/>
                 </ArticleBody>
             </div>
         )

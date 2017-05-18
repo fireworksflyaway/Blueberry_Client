@@ -14,7 +14,6 @@ export default class MyTable extends React.Component{
     render(){
         // let attrList=[{name:"Id", title:"Id"},{name:"Name", title:"姓名"},{name:"Age", title:"年龄"}];
         let itemList=this.props.itemList;
-        console.log(itemList);
         let attrList=this.props.attrList;
         let titleList=[];
         attrList.forEach(attr=>{

@@ -49,6 +49,7 @@ export default class Staff extends React.Component{
                             department:department,
                             position:position
                         });
+                    sessionStorage.setItem('Maimi_Token', obj.Token);
                 }
                 else
                 {
@@ -84,6 +85,7 @@ export default class Staff extends React.Component{
                             department:'',
                             position:''
                         });
+                    sessionStorage.setItem('Maimi_Token', obj.Token);
                 }
                 else
                 {
