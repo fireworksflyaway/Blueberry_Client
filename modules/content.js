@@ -12,11 +12,12 @@ export default class Content extends React.Component{
     }
 
     render(){
+        let articleHeight=Math.max(window.screen.height-300,600);
         return (
             <div>
                 <Aside />
                 <Nav/>
-                <article className="col-lg-9 col-md-8">
+                <article className="col-lg-9 col-md-8" style={{minHeight:`${articleHeight}px`}}>
                     {this.props.children}
                 </article>
             </div>

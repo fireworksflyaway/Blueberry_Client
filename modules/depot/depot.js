@@ -14,13 +14,15 @@ export default class Depot extends React.Component{
     constructor()
     {
         super();
+        let dataHeight=Math.max(window.screen.height-540,360);
+        let pageSize=Math.floor(dataHeight/36);
         this.state={
             pageIndex:1,
             items:[],
             pageCount:0,
             itemCount:0,
             searchItem:'',
-            pageSize:10
+            pageSize:pageSize
         }
     }
 
@@ -99,7 +101,7 @@ export default class Depot extends React.Component{
                     </form>
                 </ArticleHeader>
                 <ArticleBody>
-                    <MyTable itemList={this.state.items} attrList={attrList}/>
+                    <MyTable itemList={this.state.items} attrList={attrList} size={this.state.pageSize} />
                     <MyPagination itemCount={this.state.itemCount} pageIndex={this.state.pageIndex} pageCount={this.state.pageCount} changePage={this.updateTable.bind(this, this.state.pageSize)}/>
                 </ArticleBody>
             </div>

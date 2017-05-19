@@ -12,8 +12,11 @@ import MyPagination from '../myPagination';
 export default class Staff extends React.Component{
     constructor(){
         super();
+        let dataHeight=Math.max(window.screen.height-540,360);
+        let pageSize=Math.floor(dataHeight/36);
         this.state={
             pageIndex:1,
+            pageSize:pageSize,
             items:[],
             pageCount:0,
             itemCount:0,
@@ -35,7 +38,7 @@ export default class Staff extends React.Component{
                 department:department,
                 position:position,
                 pageIndex:pageIndex,
-                pageSize:10
+                pageSize:this.state.pageSize,
             },(obj)=> {
                 if(obj.Ack)
                 {
@@ -47,7 +50,8 @@ export default class Staff extends React.Component{
                             itemCount:obj.ItemCount,
                             searchItem:searchItem,
                             department:department,
-                            position:position
+                            position:position,
+                            pageSize:this.state.pageSize,
                         });
                     sessionStorage.setItem('Maimi_Token', obj.Token);
                 }
@@ -71,7 +75,7 @@ export default class Staff extends React.Component{
                 department:'',
                 position:'',
                 pageIndex:pindex,
-                pageSize:10
+                pageSize:this.state.pageSize,
             },(obj)=> {
                 if(obj.Ack)
                 {
@@ -83,7 +87,8 @@ export default class Staff extends React.Component{
                             itemCount:obj.ItemCount,
                             searchItem:'',
                             department:'',
-                            position:''
+                            position:'',
+                            pageSize:this.state.pageSize
                         });
                     sessionStorage.setItem('Maimi_Token', obj.Token);
                 }
@@ -137,7 +142,7 @@ export default class Staff extends React.Component{
                     </form>
                 </ArticleHeader>
                 <ArticleBody>
-                    <MyTable itemList={this.state.items} attrList={attrList} />
+                    <MyTable itemList={this.state.items} attrList={attrList} size={this.state.pageSize}/>
 
 
                     <MyPagination itemCount={this.state.itemCount} pageIndex={this.state.pageIndex} pageCount={this.state.pageCount} changePage={this.updateTable.bind(this)}/>
